@@ -1,0 +1,20 @@
+new_tab emacs_tab
+layout tall
+launch --title "emacs_window_01"
+launch --title "emacs_window_02"
+new_tab LAPTOP_brave_tab
+layout tall
+launch --title "brave_window_01"
+new_tab LAPTOP_vieb_tab
+layout tall
+launch --title "vieb_window_01"
+new_tab DESKTOP_google_chrome_tab
+layout tall
+launch --title "google_chrome_window_01"
+new_tab DESKTOP_firefox_tab
+layout tall
+launch --title "firefox_window_01"
+new_tab python_environment 
+layout tall
+launch --title "python_01"
+launch --title "python_02"

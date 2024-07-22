@@ -733,7 +733,8 @@
 (add-hook 'emacs-startup-hook 'treemacs)
 
 ;; Set the default directory for Org mode files
-(setq org-directory "~/MEGA/org")
+(setq org-directory "~/org-notes")
+
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 
 ;; Set the default agenda files

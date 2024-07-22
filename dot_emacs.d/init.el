@@ -57,6 +57,9 @@
 
 (use-package goto-chg)
 
+;; Rebind Y to yank to the end of the line
+(setq evil-want-Y-yank-to-eol t)
+
 (use-package evil
   :ensure t
   :config
@@ -262,7 +265,7 @@
      `(fill-column-indicator ((,c :height 1.0 :background ,bg-inactive :foreground ,bg-inactive)))))
 
   ;; Load the theme of your choice.
-  (load-theme 'modus-operandi)
+  (load-theme 'modus-operandi-tinted)
 
   )
 

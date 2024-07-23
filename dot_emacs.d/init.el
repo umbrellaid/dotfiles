@@ -439,34 +439,6 @@
   :after treemacs evil
   :ensure t)
 
-(use-package evil-snipe
-  :after evil
-  :ensure t
-  :config
-  (evil-snipe-mode +1)
-  (evil-snipe-override-mode +1)
-  (evil-define-key '(normal motion) evil-snipe-local-mode-map
-    "s" 'evil-snipe-s
-    "S" 'evil-snipe-S)
-
-  (evil-define-key 'operator evil-snipe-local-mode-map
-    "z" 'evil-snipe-s
-    "Z" 'evil-snipe-S
-    "x" 'evil-snipe-x
-    "X" 'evil-snipe-X)
-
-  (evil-define-key 'motion evil-snipe-override-local-mode-map
-    "f" 'evil-snipe-f
-    "F" 'evil-snipe-F
-    "t" 'evil-snipe-t
-    "T" 'evil-snipe-T)
-
-  (when evil-snipe-override-evil-repeat-keys
-    (evil-define-key 'motion map
-      ";" 'evil-snipe-repeat
-      "," 'evil-snipe-repeat-reverse))
-  )
-
 (use-package evil-surround
   :after evil
   :ensure t)

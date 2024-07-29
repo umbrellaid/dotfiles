@@ -63,7 +63,7 @@
 (use-package evil
   :ensure t
   :config
-  ;; (evil-mode 1)
+    (evil-mode 1)
   )
 
 (global-hl-line-mode t) ;; This highlights the current line in the buffer

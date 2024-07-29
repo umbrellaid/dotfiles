@@ -369,7 +369,7 @@
       (use-package elfeed
         :config
         (setq elfeed-feeds
-              '(
+              '("https://sachachua.com/blog/feed/index.xml"
                 )
               )
         )

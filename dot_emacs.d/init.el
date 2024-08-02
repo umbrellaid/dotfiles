@@ -548,6 +548,7 @@
 	'( (:maildir "/gmail/INBOX"              :key ?i)
 	   (:maildir "/gmail/[Gmail]/Sent Mail"  :key ?s)
 	   (:maildir "/gmail/[Gmail]/Trash"      :key ?t)
+	   (:maildir "/local_only_emails"      :key ?l)
 	   (:maildir "/gmail/[Gmail]/All Mail"   :key ?a)))
 
   (add-to-list 'mu4e-bookmarks

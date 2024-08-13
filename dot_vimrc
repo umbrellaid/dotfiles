@@ -20,7 +20,7 @@ set background=light
 " let g:everforest_background = 'hard'
 let g:everforest_background = 'soft'
 let g:everforest_better_performance = 1
-colorscheme everforest 
+colorscheme everforest
 let g:lightline = {}
 let g:lightline.colorscheme = 'everforest'
 nmap <Leader>P "+P
@@ -32,7 +32,14 @@ vmap <Leader>p "+p
 " This is used to access command history
 " Prevent common mistake of pressing q: instead :q
 " map q: :q
-map q: q:
+autocmd VimEnter * silent! unmap q:
+autocmd VimEnter * map q: q:
+" Reversing this change from the sheerun/vimrc
+" There are a lot of people who want Y to be y$ to match C and D, however in
+" plain vim Y is mapped to yy I want to keep original behavior whenever
+" possible
+autocmd VimEnter * silent! unmap Y
+autocmd VimEnter * map Y yy
 set relativenumber
 set guicursor=a:blinkon0
 " Do not use visual and error bells
@@ -89,11 +96,6 @@ set nojoinspaces
 
 " Quicker <Esc> in insert mode
 inoremap <silent> jk <Esc>
-
-" Yank from current cursor position to the end of the line (make it
-" consistent with the behavior of D, C)
-" this is handled in vimrc this is just a reminder to me
-" nnoremap Y y$
 
 " Toggle spell checking
 nnoremap <silent> <F11> :set spell!<cr>

@@ -57,9 +57,6 @@
 
 (use-package goto-chg)
 
-;; Rebind Y to yank to the end of the line
-(setq evil-want-Y-yank-to-eol t)
-
 (use-package evil
   :ensure t
   :config

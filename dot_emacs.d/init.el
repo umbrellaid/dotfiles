@@ -169,7 +169,7 @@
 (setq denote-rename-confirmations '(rewrite-front-matter modify-file-name))
 (setq denote-date-prompt-use-org-read-date t)
 (setq denote-date-format nil)
-(setq denote-backlinks-show-context t)
+(setq denote-backlinks-show-context nil)
 (add-hook 'text-mode-hook #'denote-fontify-links-mode-maybe)
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 (denote-rename-buffer-mode 1)

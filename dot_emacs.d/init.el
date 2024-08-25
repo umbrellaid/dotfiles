@@ -159,61 +159,6 @@
 (blink-cursor-mode 0)
 (set-default-coding-systems 'utf-8)
 (spacious-padding-mode 1)
-(setq fontaine-latest-state-file
-      (locate-user-emacs-file "fontaine-latest-state.eld"))
-(setq fontaine-presets
-      '((small
-         :default-family "CaskaydiaCove NF"
-         :default-height 120
-         :variable-pitch-family "Liberation Sans")
-        (regular)
-        (medium
-         :default-weight semilight
-         :default-height 160
-         :bold-weight extrabold)
-        (large
-         :inherit medium
-         :default-height 200)
-        (presentation
-         :default-height 260)
-        (t
-         :default-family "CaskaydiaCove NF"
-         :default-weight regular
-         :default-height 120
-         :fixed-pitch-family nil
-         :fixed-pitch-weight nil
-         :fixed-pitch-height 1.0
-         :fixed-pitch-serif-family nil
-         :fixed-pitch-serif-weight nil
-         :fixed-pitch-serif-height 1.0
-         :variable-pitch-family "Liberation Sans"
-         :variable-pitch-weight nil
-         :variable-pitch-height 1.0
-         :mode-line-active-family nil
-         :mode-line-active-weight nil
-         :mode-line-active-height 0.9
-         :mode-line-inactive-family nil
-         :mode-line-inactive-weight nil
-         :mode-line-inactive-height 0.9
-         :header-line-family nil
-         :header-line-weight nil
-         :header-line-height 0.9
-         :line-number-family nil
-         :line-number-weight nil
-         :line-number-height 0.9
-         :tab-bar-family nil
-         :tab-bar-weight nil
-         :tab-bar-height 1.0
-         :tab-line-family nil
-         :tab-line-weight nil
-         :tab-line-height 1.0
-         :bold-family nil
-         :bold-weight bold
-         :italic-family nil
-         :italic-slant italic
-         :line-spacing nil)))
-(fontaine-set-preset (or (fontaine-restore-latest-preset) 'regular))
-(fontaine-mode 1)
 (setq denote-save-buffers nil)
 (setq denote-infer-keywords t)
 (setq denote-sort-keywords t)
@@ -467,3 +412,91 @@
 (add-hook 'makefile-mode-hook #'imenu-add-menubar-index)
 (add-hook 'prog-mode-hook #'imenu-add-menubar-index)
 (add-hook 'org-mode-hook #'imenu-add-menubar-index)
+
+(setq fontaine-latest-state-file
+      (locate-user-emacs-file "fontaine-latest-state.eld"))
+
+;; Iosevka Comfy is my highly customised build of Iosevka with
+;; monospaced and duospaced (quasi-proportional) variants as well as
+;; support or no support for ligatures:
+;; <https://github.com/protesilaos/iosevka-comfy>.
+(setq fontaine-presets
+      '((small
+         :default-family "Iosevka Comfy Motion Fixed"
+         :default-height 80
+         :variable-pitch-family "Iosevka Comfy Duo")
+        (regular) ; like this it uses all the fallback values and is named `regular'
+        (medium
+         :default-weight semilight
+         :default-height 115
+         :bold-weight extrabold)
+        (large
+         :inherit medium
+         :default-height 150)
+        (presentation
+         :default-height 180)
+        (t
+         ;; I keep all properties for didactic purposes, but most can be
+         ;; omitted.  See the fontaine manual for the technicalities:
+         ;; <https://protesilaos.com/emacs/fontaine>.
+         :default-family "Iosevka Comfy Fixed"
+         :default-weight regular
+         :default-height 100
+
+         :fixed-pitch-family nil ; falls back to :default-family
+         :fixed-pitch-weight nil ; falls back to :default-weight
+         :fixed-pitch-height 1.0
+
+         :fixed-pitch-serif-family nil ; falls back to :default-family
+         :fixed-pitch-serif-weight nil ; falls back to :default-weight
+         :fixed-pitch-serif-height 1.0
+
+         :variable-pitch-family "Iosevka Comfy Motion Duo"
+         :variable-pitch-weight nil
+         :variable-pitch-height 1.0
+
+         :mode-line-active-family nil ; falls back to :default-family
+         :mode-line-active-weight nil ; falls back to :default-weight
+         :mode-line-active-height 0.9
+
+         :mode-line-inactive-family nil ; falls back to :default-family
+         :mode-line-inactive-weight nil ; falls back to :default-weight
+         :mode-line-inactive-height 0.9
+
+         :header-line-family nil ; falls back to :default-family
+         :header-line-weight nil ; falls back to :default-weight
+         :header-line-height 0.9
+
+         :line-number-family nil ; falls back to :default-family
+         :line-number-weight nil ; falls back to :default-weight
+         :line-number-height 0.9
+
+         :tab-bar-family nil ; falls back to :default-family
+         :tab-bar-weight nil ; falls back to :default-weight
+         :tab-bar-height 1.0
+
+         :tab-line-family nil ; falls back to :default-family
+         :tab-line-weight nil ; falls back to :default-weight
+         :tab-line-height 1.0
+
+         :bold-family nil ; use whatever the underlying face has
+         :bold-weight bold
+
+         :italic-family nil
+         :italic-slant italic
+
+         :line-spacing nil)))
+
+;; Set the last preset or fall back to desired style from `fontaine-presets'
+;; (the `regular' in this case).
+(fontaine-set-preset (or (fontaine-restore-latest-preset) 'regular))
+
+;; Persist the latest font preset when closing/starting Emacs and
+;; while switching between themes.
+(fontaine-mode 1)
+
+;; fontaine does not define any key bindings.  This is just a sample that
+;; respects the key binding conventions.  Evaluate:
+;;
+;;     (info "(elisp) Key Binding Conventions")
+(define-key global-map (kbd "C-c f") #'fontaine-set-preset)

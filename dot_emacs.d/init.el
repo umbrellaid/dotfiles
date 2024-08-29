@@ -42,7 +42,11 @@
       (load "~/crafted-emacs-master/modules/crafted-init-config")
       (add-to-list 'package-selected-packages 'greader)
       (add-to-list 'package-selected-packages 'elfeed)
-      (add-to-list 'package-selected-packages 'notmuch)
+      (add-to-list 'load-path "/var/home/david/Projects/notmuch/emacs")
+      (require 'notmuch)
+      (autoload 'notmuch "notmuch" "notmuch mail" t)
+      (setq notmuch-database-path "/var/mnt/25b369a9-cff5-47ef-9512-3b135fce7ef6/reorganized_emails")
+      (setq notmuch-search-result-limit 1000)
       )
   (progn
     (message "Else part of HOME code running...")
@@ -324,19 +328,11 @@
       (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
       (require 'mu4e)
       (setq mail-user-agent 'mu4e-user-agent)
-      (setq mu4e-drafts-folder "/gmail/[Gmail]/Drafts")
-      (setq mu4e-sent-folder   "/gmail/[Gmail]/Sent Mail")
-      (setq mu4e-trash-folder  "/gmail/[Gmail]/Trash")
       (setq mu4e-refile-folder "/gmail/[Gmail]/All Mail")
       (setq mu4e-sent-messages-behavior 'delete)
       (setq mu4e-maildir-shortcuts
-            '( (:maildir "/gmail/INBOX"              :key ?i)
-               (:maildir "/gmail/[Gmail]/Sent Mail"  :key ?s)
-               (:maildir "/gmail/[Gmail]/Trash"      :key ?t)
-               (:maildir "/gmail/[Gmail]/All Mail"   :key ?a)))
-
-      (add-to-list 'mu4e-bookmarks
-                   '(:query "maildir:/inbox" :name "Inbox" :key ?i :favorite t))
+            '((:maildir "/gmail/[Gmail]/All Mail"   :key ?a)
+              (:maildir "/local_only_emails"   :key ?l)))
       (setq
        user-mail-address "daverecor@gmail.com"
        user-full-name  "David Recor"
@@ -428,7 +424,7 @@
         (regular) ; like this it uses all the fallback values and is named `regular'
         (medium
          :default-weight semilight
-         :default-height 115
+         :default-height 135
          :bold-weight extrabold)
         (large
          :inherit medium

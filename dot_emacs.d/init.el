@@ -42,10 +42,10 @@
       (load "~/crafted-emacs-master/modules/crafted-init-config")
       (add-to-list 'package-selected-packages 'greader)
       (add-to-list 'package-selected-packages 'elfeed)
-      (add-to-list 'load-path "/var/home/david/Projects/notmuch/emacs")
+      (add-to-list 'load-path "/home/david/Manual_Programming_Builds/notmuch/emacs")
       (require 'notmuch)
       (autoload 'notmuch "notmuch" "notmuch mail" t)
-      (setq notmuch-database-path "/var/mnt/25b369a9-cff5-47ef-9512-3b135fce7ef6/reorganized_emails")
+      (setq notmuch-database-path "/media/david/myINTERNAL/reorganized_emails/")
       (setq notmuch-search-result-limit 1000)
       )
   (progn
@@ -230,7 +230,7 @@
                 (if (equal window-system 'w32)
                     (async-shell-command "explorer .")
                   (if (equal window-system 'x)
-                      (async-shell-command "caja ."))))))
+                      (async-shell-command "thunar ."))))))
 (defun drr-insert-date-stamp-prefix ()
   "Inserts the current date in mm-dd-yyyy format, prefixed with 'Date: '."
   (interactive)

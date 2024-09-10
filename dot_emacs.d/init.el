@@ -45,7 +45,7 @@
       (add-to-list 'load-path "/home/david/Manual_Programming_Builds/notmuch/emacs")
       (require 'notmuch)
       (autoload 'notmuch "notmuch" "notmuch mail" t)
-      (setq notmuch-database-path "/media/david/myINTERNAL/reorganized_emails/")
+      (setq notmuch-database-path "/media/david/99d25f34-a775-4723-b0b7-f7afd58db67b/myINTERNAL/reorganized_emails/")
       (setq notmuch-search-result-limit 1000)
       )
   (progn

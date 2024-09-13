@@ -424,7 +424,7 @@
         (regular) ; like this it uses all the fallback values and is named `regular'
         (medium
          :default-weight semilight
-         :default-height 135
+         :default-height 115
          :bold-weight extrabold)
         (large
          :inherit medium

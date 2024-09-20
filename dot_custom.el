@@ -1,4 +1,6 @@
-(require-package 'standard-themes)
+(setq debug-on-error t)
+(setq-default fill-column 80)
+(require-package 'spacemacs-theme)
 (require-package 'fontaine)
 (blink-cursor-mode 0)
 (setq mu4e-html2text-command 'mu4e-shr2text)
@@ -38,36 +40,6 @@
 (autoload 'notmuch "notmuch" "notmuch mail" t)
 (setq notmuch-database-path "/media/david/99d25f34-a775-4723-b0b7-f7afd58db67b/myINTERNAL/reorganized_emails/")
 (setq notmuch-search-result-limit 1000)
-;; Make customisations that affect Emacs faces BEFORE loading a theme
-;; (any change needs a theme re-load to take effect).
-(require 'standard-themes)
-
-;; Read the doc string of each of those user options.  These are some
-;; sample values.
-(setq standard-themes-bold-constructs t
-      standard-themes-italic-constructs t
-      standard-themes-disable-other-themes t
-      standard-themes-mixed-fonts t
-      standard-themes-variable-pitch-ui t
-      standard-themes-prompts '(extrabold italic)
-
-      ;; more complex alist to set weight, height, and optional
-      ;; `variable-pitch' per heading level (t is for any level not
-      ;; specified):
-      standard-themes-headings
-      '((0 . (variable-pitch light 1.9))
-        (1 . (variable-pitch light 1.8))
-        (2 . (variable-pitch light 1.7))
-        (3 . (variable-pitch semilight 1.6))
-        (4 . (variable-pitch semilight 1.5))
-        (5 . (variable-pitch 1.4))
-        (6 . (variable-pitch 1.3))
-        (7 . (variable-pitch 1.2))
-        (agenda-date . (1.3))
-        (agenda-structure . (variable-pitch light 1.8))
-        (t . (variable-pitch 1.1))))
-
-(standard-themes-load-light) ; OR (standard-themes-load-dark)
 (setq fontaine-latest-state-file
       (locate-user-emacs-file "fontaine-latest-state.eld"))
 
@@ -149,3 +121,7 @@
 ;; Persist the latest font preset when closing/starting Emacs and
 ;; while switching between themes.
 (fontaine-mode 1)
+
+(mapc #'disable-theme custom-enabled-themes)
+(load-theme 'spacemacs-light :noconfirm)
+;; (load-theme 'spacemacs-dark :noconfirm)

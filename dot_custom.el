@@ -123,5 +123,5 @@
 (fontaine-mode 1)
 
 (mapc #'disable-theme custom-enabled-themes)
-(load-theme 'spacemacs-light :noconfirm)
-;; (load-theme 'spacemacs-dark :noconfirm)
+;; (load-theme 'spacemacs-light :noconfirm)
+(load-theme 'spacemacs-dark :noconfirm)

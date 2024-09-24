@@ -134,3 +134,7 @@
 
 (mapc #'disable-theme custom-enabled-themes)
 (load-theme 'modus-vivendi-tinted :noconfirm)
+(require 'pdf-tools)
+(pdf-tools-install)
+(setq-default pdf-view-display-size 'fit-page)
+(add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))

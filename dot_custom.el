@@ -138,3 +138,4 @@
 (pdf-tools-install)
 (setq-default pdf-view-display-size 'fit-page)
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
+(menu-bar-mode 1)
